@@ -1,8 +1,8 @@
 # Transmitter Weight Modulation
 
-Neural networks typically learn by updating weights and biases directly using gradients. **Transmitter Weight Modulation (TWM)** explores indirect updates through a transmitter rule while retaining backpropagation.
+Most neural networks are trained using backpropagation to compute gradients and an optimizer to update their weights and biases directly. **Transmitter Weight Modulation (TWM)** explores a different approach: using a transmitter update rule to adapt weights and biases indirectly, while retaining backpropagation for learning.
 
-Preliminary image-classification results are shared below.
+Our pilot results show that this approach can support learning in both convolutional networks and vision transformers. We report preliminary image-classification results on CIFAR-100 and partial results on ImageNet-1K. These findings motivate further investigation, with matched comparisons needed to establish whether the approach offers an advantage over conventional training.
 
 ## CIFAR-100
 
@@ -27,7 +27,5 @@ Plain references differ in configuration or seed coverage. ConvNeXt values are h
 | TWM (ReLU) | 42 | 109 / 300 | 73.38 |
 
 Latest retained records checked on 2026-09-08; different epoch counts prevent a matched comparison.
-
-[Results and supplementary experiments](results/) | [Provenance](results/provenance.json)
 
 Results only; code and checkpoints are not included.

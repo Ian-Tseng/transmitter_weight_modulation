@@ -1,3 +1,0 @@
-dataset,architecture,method,seed,epochs_completed,epochs_planned,best_val_acc_percent,evidence_status
-ImageNet-1K,ResNet-50,TX-persistent-S-transform/ReLU,42,109,300,73.38,incomplete_single_seed_progress
-ImageNet-1K,ResNet-50,Plain,42,149,300,62.08,incomplete_single_seed_progress

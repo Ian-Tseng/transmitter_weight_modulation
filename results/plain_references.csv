@@ -1,5 +1,0 @@
-dataset,architecture,method,seed,epochs_completed,best_epoch,best_val_acc_percent,final_val_acc_percent,metric_source,evidence_status,matched_to_relu_twm
-CIFAR-100,ResNet-50,Plain (historical reference),42,200,185,79.78,79.62,history_plain.json,three_seed_metrics_complete_but_checkpoint_lifecycle_and_source_identity_incomplete,false
-CIFAR-100,ResNet-50,Plain (historical reference),43,200,183,79.38,79.13,history_plain.json,three_seed_metrics_complete_but_checkpoint_lifecycle_and_source_identity_incomplete,false
-CIFAR-100,ResNet-50,Plain (historical reference),44,200,185,79.77,79.56,complete plain.log; history absent,three_seed_metrics_complete_but_checkpoint_lifecycle_and_source_identity_incomplete,false
-CIFAR-100,ViT-B/16,Plain (recovered reference),42,300,257,71.3,71.08,retained recovered checkpoint summary,single_seed_recovered_reference_different_trainer_lineage,false

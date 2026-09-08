@@ -1,5 +1,0 @@
-dataset,architecture,method,source_policy,seed,epochs_completed,best_epoch,best_val_acc_percent,final_val_acc_percent,tx_state_protocol,evidence_status,paper_table_eligible
-CIFAR-100,ViT-B/16,Historical TX source-policy screen,existing_weight,42,64,56,71.72,71.53,train_persistent_validation_snapshot_reset_restore_checkpoint_v1,single_seed_screening_metric_complete_artifact_incomplete,false
-CIFAR-100,ViT-B/16,Historical TX source-policy screen,activation,42,64,62,70.92,70.85,train_persistent_validation_snapshot_reset_restore_checkpoint_v1,single_seed_screening_metric_complete_artifact_incomplete,false
-CIFAR-100,ConvNeXt-Small,Historical TX source-policy screen,existing_weight,42,64,61,62.54,62.53,train_persistent_validation_snapshot_reset_restore_checkpoint_v1,single_seed_screening_metric_complete_artifact_incomplete,false
-CIFAR-100,ConvNeXt-Small,Historical TX source-policy screen,activation,42,64,62,62.89,62.71,train_persistent_validation_snapshot_reset_restore_checkpoint_v1,single_seed_screening_metric_complete_artifact_incomplete,false

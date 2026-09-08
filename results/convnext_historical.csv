@@ -1,3 +1,0 @@
-dataset,architecture,method,seed,epochs_reported,best_val_acc_percent,final_val_acc_percent,evidence_status,matched_comparison_verified,paper_table_eligible
-CIFAR-100,ConvNeXt-Small,Plain,42,300,67.87,67.85,historical_reported_values_primary_source_missing,false,false
-CIFAR-100,ConvNeXt-Small,Historical TX,42,300,69.7,69.6,historical_reported_values_primary_source_missing,false,false
