@@ -1,62 +1,33 @@
 # Transmitter Weight Modulation
 
-Neural networks typically learn by updating their weights and biases directly using gradients. **Transmitter Weight Modulation (TWM)** explores an indirect approach, using a transmitter update rule to shape these parameters while retaining backpropagation for learning.
+Neural networks typically learn by updating weights and biases directly using gradients. **Transmitter Weight Modulation (TWM)** explores indirect updates through a transmitter rule while retaining backpropagation.
 
-Our pilot experiments show promising signs of feasibility in image classification. This repository shares preliminary results from ongoing research; broader validation and matched comparisons are still needed.
+Preliminary image-classification results are shared below.
 
-## CIFAR-100: TWM and Plain training
+## CIFAR-100
 
-| Architecture | Method | Epochs per seed | Seeds | Best validation accuracy | Final validation accuracy |
+Validation accuracy (%). Multi-seed values are mean ± sample standard deviation.
+
+| Model | Method | Epochs | Seeds | Best | Final |
 | --- | --- | ---: | --- | ---: | ---: |
-| ResNet-50 | Plain (historical reference) | 200 | 42, 43, 44 | 79.64% ± 0.23% | 79.44% ± 0.27% |
-| ResNet-50 | TWM, ReLU persistent-state | 200 | 42, 43, 44 | 80.76% ± 0.34% | 80.63% ± 0.32% |
-| ViT-B/16 | Plain (recovered reference) | 300 | 42 | 71.30% | 71.08% |
-| ViT-B/16 | TWM, ReLU persistent-state | 300 | 42, 43, 44 | 74.91% ± 0.21% | 74.81% ± 0.18% |
+| ResNet-50 | Plain reference | 200 | 42, 43, 44 | 79.64 ± 0.23 | 79.44 ± 0.27 |
+| ResNet-50 | TWM (ReLU) | 200 | 42, 43, 44 | 80.76 ± 0.34 | 80.63 ± 0.32 |
+| ViT-B/16 | Plain reference | 300 | 42 | 71.30 | 71.08 |
+| ViT-B/16 | TWM (ReLU) | 300 | 42, 43, 44 | 74.91 ± 0.21 | 74.81 ± 0.18 |
+| ConvNeXt-Small | Plain, historical | 300 | 42 | 67.87 | 67.85 |
+| ConvNeXt-Small | TWM, historical | 300 | 42 | 69.70 | 69.60 |
 
-Values with ± are mean ± sample standard deviation across seeds; the single-seed ViT-B/16 Plain reference has no reported standard deviation. Best is each seed's highest recorded validation accuracy; final is its accuracy at the last completed epoch. The TWM pilots used FP32 with AMP disabled.
+Plain references differ in configuration or seed coverage. ConvNeXt values are historical reports; original artifacts are unavailable. These are preliminary comparisons, not confirmed performance gains.
 
-Plain rows are reference comparisons: ResNet-50 uses a historical configuration, and ViT-B/16 uses a different trainer lineage and one seed. These differences prevent an identity-matched performance-gain claim. The TWM rows are completed pilot screens, not yet eligible for the project's formal paper tables. During TWM validation, effective parameters evolve across batches without gradient or optimizer updates, and the saved training state is restored afterward.
+## ImageNet-1K: ResNet-50 (incomplete)
 
-## ImageNet-1K: ResNet-50 progress (incomplete)
-
-| Method | Seed | Completed epochs | Best validation Top-1 accuracy so far |
+| Method | Seed | Completed epochs | Best Top-1 (%) |
 | --- | ---: | ---: | ---: |
-| TWM, ReLU persistent-state | 42 | 109 / 300 | 73.38% |
-| Conventional training (Plain) | 42 | 149 / 300 | 62.08% |
+| Plain | 42 | 149 / 300 | 62.08 |
+| TWM (ReLU) | 42 | 109 / 300 | 73.38 |
 
-These are the latest retained completed-epoch records checked on 2026-09-08. They are incomplete single-seed results at different epoch counts, not a final or matched performance comparison.
+Latest retained records checked on 2026-09-08; different epoch counts prevent a matched comparison.
 
-## ConvNeXt-Small: historical 300-epoch results
+[Results and supplementary experiments](results/) | [Provenance](results/provenance.json)
 
-The project result register preserves the following CIFAR-100 values for seed 42. The original checkpoint/log sources are no longer available, so these historical reported values cannot currently be reverified from the original artifacts. The TX row has a historical configuration; it is not identified as the ReLU persistent-state variant above.
-
-| Architecture | Method | Epochs reported | Seed | Best validation accuracy | Final validation accuracy |
-| --- | --- | ---: | ---: | ---: | ---: |
-| ConvNeXt-Small | Conventional training (Plain) | 300 | 42 | 67.87% | 67.85% |
-| ConvNeXt-Small | Historical TX | 300 | 42 | 69.70% | 69.60% |
-
-These values provide historical context, not a verified matched comparison or a three-seed aggregate.
-
-## Retained source-policy experiment
-
-A separate 64-epoch CIFAR-100 screen compared two sources for transmitter modulation: parameter/state-derived (`existing_weight`) and activation-derived (`activation`). All rows use seed 42 and a historical validation protocol. They are distinct from the ReLU persistent-state pilots and the 300-epoch ConvNeXt-Small experiment.
-
-| Architecture | Source policy | Best validation accuracy | Final validation accuracy |
-| --- | --- | ---: | ---: |
-| ViT-B/16 | Parameter/state-derived | 71.72% | 71.53% |
-| ViT-B/16 | Activation-derived | 70.92% | 70.85% |
-| ConvNeXt-Small | Parameter/state-derived | 62.54% | 62.53% |
-| ConvNeXt-Small | Activation-derived | 62.89% | 62.71% |
-
-The retained report validates all four 64-epoch metric histories. Checkpoint and completion artifacts are incomplete. The different preferred sources across architectures are a screening observation requiring multi-seed confirmation.
-
-## Results files
-
-- [Per-seed ReLU pilot results](results/pilot_results.csv)
-- [Plain training reference results](results/plain_references.csv)
-- [Historical ConvNeXt-Small results](results/convnext_historical.csv)
-- [Source-policy screening results](results/source_policy_screen.csv)
-- [ImageNet-1K progress](results/imagenet1k_progress.csv)
-- [Result provenance and experiment identities](results/provenance.json)
-
-This repository shares the project introduction and pilot-result summaries only. Training code, datasets, model weights, and checkpoints are not included.
+Results only; code and checkpoints are not included.
