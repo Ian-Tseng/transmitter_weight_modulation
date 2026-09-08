@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Selected CIFAR-100 pilot results grouped by variant and evidence status",
+  "scope": "Selected CIFAR-100 pilot results and incomplete ImageNet-1K ResNet-50 progress, grouped by variant and evidence status",
   "uncertainty": "Sample standard deviation across seeds (ddof=1); no SD for single-seed rows",
   "publication_verification": "Recomputed ReLU pilot means/sample SDs from retained summaries; checked screening metrics and historical register. Original checkpoints were not reopened for this publication.",
   "limitations": [
@@ -214,6 +214,29 @@
       "original_artifacts_available": false,
       "method_variant": "Historical TX; ReLU persistent-state identity not established",
       "matched_comparison_verified": false
+    },
+    {
+      "source_document": "current_status.json",
+      "source_sha256": "b87e3e682c2d5dda9aaf424675b0d130d02df37a3aceac3cc2bf82e5433f2ba9",
+      "source_modified_at": "2026-08-31T02:23:56.123963+00:00",
+      "dataset": "ImageNet-1K",
+      "model": "ResNet-50",
+      "method": "TX-persistent-S-transform/ReLU",
+      "evidence_status": "incomplete_single_seed_progress",
+      "publication_checked_at": "2026-09-08T06:28:13.324737+00:00",
+      "source_observed_at": "2026-08-31T02:23:52.839688+00:00",
+      "run_group_id": "r50psr1"
+    },
+    {
+      "source_document": "seed42_epoch_results_so_far.md",
+      "source_sha256": "d30f289f2e32f612614f700afae1e32ad883cf588141bfa0d457a07bf919896a",
+      "source_modified_at": "2026-08-27T11:31:18.143026+00:00",
+      "dataset": "ImageNet-1K",
+      "model": "ResNet-50",
+      "method": "Plain",
+      "evidence_status": "incomplete_single_seed_progress",
+      "publication_checked_at": "2026-09-08T06:28:13.325742+00:00",
+      "run_group_id": "img1k_r50_plain_s42-44_e300_b128_norep_fp32_v1"
     }
   ]
 }

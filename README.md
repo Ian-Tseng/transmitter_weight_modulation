@@ -17,6 +17,15 @@ Values are mean ± sample standard deviation across seeds. Best is each seed's h
 
 These are completed pilot screens, not yet eligible for the project's formal paper tables. They do not establish a matched baseline benefit, stability advantage, or general scaling result. In this variant, validation is recurrent: effective parameters evolve across validation batches without gradient or optimizer updates, and the saved training state is restored afterward.
 
+## ImageNet-1K: ResNet-50 progress (incomplete)
+
+| Method | Seed | Completed epochs | Best validation Top-1 accuracy so far |
+| --- | ---: | ---: | ---: |
+| TWM, ReLU persistent-state | 42 | 109 / 300 | 73.38% |
+| Conventional training (Plain) | 42 | 149 / 300 | 62.08% |
+
+These are the latest retained completed-epoch records checked on 2026-09-08. They are incomplete single-seed results at different epoch counts, not a final or matched performance comparison.
+
 ## ConvNeXt-Small: historical 300-epoch results
 
 The project result register preserves the following CIFAR-100 values for seed 42. The original checkpoint/log sources are no longer available, so these historical reported values cannot currently be reverified from the original artifacts. The TX row has a historical configuration; it is not identified as the ReLU persistent-state variant above.
@@ -46,6 +55,7 @@ The retained report validates all four 64-epoch metric histories. Checkpoint and
 - [Per-seed ReLU pilot results](results/pilot_results.csv)
 - [Historical ConvNeXt-Small results](results/convnext_historical.csv)
 - [Source-policy screening results](results/source_policy_screen.csv)
+- [ImageNet-1K progress](results/imagenet1k_progress.csv)
 - [Result provenance and experiment identities](results/provenance.json)
 
 This repository shares the project introduction and pilot-result summaries only. Training code, datasets, model weights, and checkpoints are not included.
