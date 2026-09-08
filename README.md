@@ -1,8 +1,8 @@
 # Transmitter Weight Modulation
 
-Conventional neural network training uses backpropagation to compute gradients and an optimizer to update the weights and biases used directly in the forward pass. **Transmitter Weight Modulation (TWM)** explores an alternative parameter-update approach: a transmitter update rule generates the effective weights and biases from trainable latent parameters and a recurrent state derived from previous effective parameters. Backpropagation and the optimizer remain part of training, while the weights and biases used by the network evolve indirectly through this rule.
+Neural networks typically learn by updating their weights and biases directly using gradients. **Transmitter Weight Modulation (TWM)** explores an indirect approach, using a transmitter update rule to shape these parameters while retaining backpropagation for learning.
 
-Our pilot results show that this approach can train both a convolutional network and a vision transformer on CIFAR-100. Across three seeds, the ReLU persistent-state variant reached a mean best validation accuracy of **80.76% with ResNet-50** and **74.91% with ViT-B/16**. Additional ConvNeXt-Small results are reported below with their experimental settings and evidence status. These findings support further investigation of transmitter-based parameter updates. Establishing an advantage over conventional training requires matched baseline experiments and broader validation.
+Our pilot experiments show promising signs of feasibility in image classification. This repository shares preliminary results from ongoing research; broader validation and matched comparisons are still needed.
 
 ## CIFAR-100: TWM and Plain training
 
