@@ -237,6 +237,26 @@
       "evidence_status": "incomplete_single_seed_progress",
       "publication_checked_at": "2026-09-08T06:28:13.325742+00:00",
       "run_group_id": "img1k_r50_plain_s42-44_e300_b128_norep_fp32_v1"
+    },
+    {
+      "source_document": "result_summary.json",
+      "source_sha256": "7ce619549fc365898706d4a3702e166c60213d6266578750bb92ee758fad92fc",
+      "source_snapshot": "20260814T072236Z",
+      "dataset": "CIFAR-100",
+      "model": "ResNet-50",
+      "method": "Plain",
+      "comparison_status": "historical_reference_not_identity_matched_to_relu_twm",
+      "evidence_note": "Historical Plain configuration differs from the ReLU TWM pilot; three seeds; seed 44 uses a complete log."
+    },
+    {
+      "source_document": "recovered_from_pasted_log.json",
+      "source_sha256": "5f0bd720b299f5b59e1a791aab23db7fb1467f44c44b13ba138aee22a482ba25",
+      "source_snapshot": "_recovered_from_pasted_log",
+      "dataset": "CIFAR-100",
+      "model": "ViT-B/16",
+      "method": "Plain",
+      "comparison_status": "historical_reference_not_identity_matched_to_relu_twm",
+      "evidence_note": "Recovered Plain checkpoint summary; one seed; transmitter_pn_trainer lineage differs from the ReLU TWM pilot."
     }
   ]
 }

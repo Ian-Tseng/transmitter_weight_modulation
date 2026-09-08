@@ -4,18 +4,18 @@ Conventional neural network training uses backpropagation to compute gradients a
 
 Our pilot results show that this approach can train both a convolutional network and a vision transformer on CIFAR-100. Across three seeds, the ReLU persistent-state variant reached a mean best validation accuracy of **80.76% with ResNet-50** and **74.91% with ViT-B/16**. Additional ConvNeXt-Small results are reported below with their experimental settings and evidence status. These findings support further investigation of transmitter-based parameter updates. Establishing an advantage over conventional training requires matched baseline experiments and broader validation.
 
-## Completed ReLU persistent-state pilots
+## CIFAR-100: TWM and Plain training
 
-These CIFAR-100 results use the **ReLU persistent-state variant**, recorded as `TX-persistent-S-transform` with `tx_s_anchor_transform=relu`. They describe this specific variant, rather than every TWM configuration.
+| Architecture | Method | Epochs per seed | Seeds | Best validation accuracy | Final validation accuracy |
+| --- | --- | ---: | --- | ---: | ---: |
+| ResNet-50 | Plain (historical reference) | 200 | 42, 43, 44 | 79.64% ± 0.23% | 79.44% ± 0.27% |
+| ResNet-50 | TWM, ReLU persistent-state | 200 | 42, 43, 44 | 80.76% ± 0.34% | 80.63% ± 0.32% |
+| ViT-B/16 | Plain (recovered reference) | 300 | 42 | 71.30% | 71.08% |
+| ViT-B/16 | TWM, ReLU persistent-state | 300 | 42, 43, 44 | 74.91% ± 0.21% | 74.81% ± 0.18% |
 
-| Architecture | Epochs per seed | Seeds | Best validation accuracy | Final validation accuracy |
-| --- | ---: | --- | ---: | ---: |
-| ResNet-50 | 200 | 42, 43, 44 | 80.76% ± 0.34% | 80.63% ± 0.32% |
-| ViT-B/16 | 300 | 42, 43, 44 | 74.91% ± 0.21% | 74.81% ± 0.18% |
+Values with ± are mean ± sample standard deviation across seeds; the single-seed ViT-B/16 Plain reference has no reported standard deviation. Best is each seed's highest recorded validation accuracy; final is its accuracy at the last completed epoch. The TWM pilots used FP32 with AMP disabled.
 
-Values are mean ± sample standard deviation across seeds. Best is each seed's highest recorded validation accuracy; final is its accuracy at the last completed epoch. Both experiments used FP32 with AMP disabled.
-
-These are completed pilot screens, not yet eligible for the project's formal paper tables. They do not establish a matched baseline benefit, stability advantage, or general scaling result. In this variant, validation is recurrent: effective parameters evolve across validation batches without gradient or optimizer updates, and the saved training state is restored afterward.
+Plain rows are reference comparisons: ResNet-50 uses a historical configuration, and ViT-B/16 uses a different trainer lineage and one seed. These differences prevent an identity-matched performance-gain claim. The TWM rows are completed pilot screens, not yet eligible for the project's formal paper tables. During TWM validation, effective parameters evolve across batches without gradient or optimizer updates, and the saved training state is restored afterward.
 
 ## ImageNet-1K: ResNet-50 progress (incomplete)
 
@@ -53,6 +53,7 @@ The retained report validates all four 64-epoch metric histories. Checkpoint and
 ## Results files
 
 - [Per-seed ReLU pilot results](results/pilot_results.csv)
+- [Plain training reference results](results/plain_references.csv)
 - [Historical ConvNeXt-Small results](results/convnext_historical.csv)
 - [Source-policy screening results](results/source_policy_screen.csv)
 - [ImageNet-1K progress](results/imagenet1k_progress.csv)
