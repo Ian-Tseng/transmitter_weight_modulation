@@ -1,0 +1,7 @@
+seed,method,epochs,best_accuracy_percent,final_accuracy_percent,precision,repeated_augmentation
+42,plain,300,69.01,68.88,FP32,3
+42,tx,300,69.83,69.73,FP32,3
+43,plain,300,68.14,67.98,FP32,3
+43,tx,300,68.14,67.90,FP32,3
+44,plain,300,68.90,68.62,FP32,3
+44,tx,300,68.33,68.09,FP32,3
