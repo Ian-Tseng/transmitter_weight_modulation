@@ -14,14 +14,14 @@ Validation accuracy (%). Multi-seed values are mean ± sample standard deviation
 | ResNet-50 | TWM | 200 | 42, 43, 44 | **80.76 ± 0.34** | **80.63 ± 0.32** |
 | ViT-B/16 | Plain | 300 | 42 | 71.30 | 71.08 |
 | ViT-B/16 | TWM | 300 | 42, 43, 44 | **74.91 ± 0.21** | **74.81 ± 0.18** |
-| ConvNeXt-Small | Plain | 300 | 42, 43, 44 | 68.68 ? 0.47 | 68.49 ? 0.46 |
-| ConvNeXt-Small | TWM | 300 | 42, 43, 44 | 68.77 ? 0.93 | 68.57 ? 1.01 |
+| ConvNeXt-Small | Plain | 300 | 42, 43, 44 | 68.68 ± 0.47 | 68.49 ± 0.46 |
+| ConvNeXt-Small | TWM | 300 | 42, 43, 44 | 68.77 ± 0.93 | 68.57 ± 1.01 |
 
 Plain references differ in configuration or seed coverage. These are preliminary comparisons, not confirmed performance gains. ConvNeXt-Small now uses the retained three-seed histories imported on 2026-09-28 and rechecked on 2026-10-28; its previous single-seed values are superseded in this table.
 
 ## ConvNeXt-Small: updated preliminary evidence
 
-CIFAR-100, 300 epochs, FP32, repeated augmentation x3. All six saved histories contain 300 validation entries; best and final values were recomputed from those arrays. Summary values above are mean ? sample standard deviation across seeds 42/43/44.
+CIFAR-100, 300 epochs, FP32, repeated augmentation x3. All six saved histories contain 300 validation entries; best and final values were recomputed from those arrays. Summary values above are mean ± sample standard deviation across seeds 42/43/44.
 
 | Seed | Plain best (%) | TWM best (%) | Plain final (%) | TWM final (%) |
 | --- | ---: | ---: | ---: | ---: |
