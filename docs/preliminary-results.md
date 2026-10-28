@@ -10,12 +10,12 @@ Validation accuracy (%). Multi-seed values are mean ± sample standard deviation
 
 | Model | Method | Epochs | Seeds | Best | Final |
 | --- | --- | ---: | --- | ---: | ---: |
-| ResNet-50 | Plain reference | 200 | 42, 43, 44 | 79.64 ± 0.23 | 79.44 ± 0.27 |
-| ResNet-50 | TWM (ReLU) | 200 | 42, 43, 44 | **80.76 ± 0.34** | **80.63 ± 0.32** |
-| ViT-B/16 | Plain reference | 300 | 42 | 71.30 | 71.08 |
-| ViT-B/16 | TWM (ReLU) | 300 | 42, 43, 44 | **74.91 ± 0.21** | **74.81 ± 0.18** |
-| ConvNeXt-Small | Plain (repeat x3) | 300 | 42, 43, 44 | 68.68 ? 0.47 | 68.49 ? 0.46 |
-| ConvNeXt-Small | TWM (ReLU, repeat x3) | 300 | 42, 43, 44 | 68.77 ? 0.93 | 68.57 ? 1.01 |
+| ResNet-50 | Plain | 200 | 42, 43, 44 | 79.64 ± 0.23 | 79.44 ± 0.27 |
+| ResNet-50 | TWM | 200 | 42, 43, 44 | **80.76 ± 0.34** | **80.63 ± 0.32** |
+| ViT-B/16 | Plain | 300 | 42 | 71.30 | 71.08 |
+| ViT-B/16 | TWM | 300 | 42, 43, 44 | **74.91 ± 0.21** | **74.81 ± 0.18** |
+| ConvNeXt-Small | Plain | 300 | 42, 43, 44 | 68.68 ? 0.47 | 68.49 ? 0.46 |
+| ConvNeXt-Small | TWM | 300 | 42, 43, 44 | 68.77 ? 0.93 | 68.57 ? 1.01 |
 
 Plain references differ in configuration or seed coverage. These are preliminary comparisons, not confirmed performance gains. ConvNeXt-Small now uses the retained three-seed histories imported on 2026-09-28 and rechecked on 2026-10-28; its previous single-seed values are superseded in this table.
 
@@ -40,7 +40,7 @@ The earlier seed-42 report-only values (Plain best/final 67.87/67.85%; TWM 69.70
 | Method | Seed | Completed epochs | Best Top-1 (%) |
 | --- | ---: | ---: | ---: |
 | Plain | 42 | 149 / 300 | 62.08 |
-| TWM (persistent ReLU) | 42 | 109 / 300 | **73.38** |
+| TWM | 42 | 109 / 300 | **73.38** |
 
 Retained checkpoint audit dated 2026-10-07 records Plain 62.078% at epoch149 and TWM 73.384% at epoch109 (rounded above). Different epoch counts and weight decay prevent a matched comparison. Both the ResNet-50 and ViT-B/16 TWM rows use persistent raw-S ReLU; their Plain references do not.
 
@@ -49,7 +49,7 @@ Retained checkpoint audit dated 2026-10-07 records Plain 62.078% at epoch149 and
 | Method | Seed | Completed epochs | Best Top-1 (%) | Latest completed Top-1 (%) |
 | --- | ---: | ---: | ---: | ---: |
 | Plain | 42 | 61 / 300 | 64.430 | 64.430 |
-| TWM (persistent ReLU) | 42 | 43 / 300 | 71.206 | 71.206 |
+| TWM | 42 | 43 / 300 | 71.206 | 71.206 |
 
 Retained checkpoint metadata and validation histories were reopened on CPU on 2026-10-28. Best values occur at epochs 61 and 43, respectively. Partial training batches are excluded. These are incomplete single-seed results, not final 300-epoch outcomes.
 
