@@ -44,4 +44,15 @@ The earlier seed-42 report-only values (Plain best/final 67.87/67.85%; TWM 69.70
 
 Latest retained records checked on 2026-09-08; different epoch counts prevent a matched comparison.
 
+## ImageNet-1K: ViT-B/16 (incomplete)
+
+| Method | Seed | Completed epochs | Best Top-1 (%) | Latest completed Top-1 (%) |
+| --- | ---: | ---: | ---: | ---: |
+| Plain | 42 | 61 / 300 | 64.430 | 64.430 |
+| TWM (persistent ReLU) | 42 | 43 / 300 | 71.206 | 71.206 |
+
+Retained checkpoint metadata and validation histories were reopened on CPU on 2026-10-28. Best values occur at epochs 61 and 43, respectively. Partial training batches are excluded. These are incomplete single-seed results, not final 300-epoch outcomes.
+
+The runs have unequal epoch budgets and different weight decay (Plain 0.05; TWM 0.0), and use a historical legacy-padding configuration. The +6.776 percentage-point best-accuracy difference is descriptive, not evidence of an equal-budget or matched-recipe advantage. Seeds 43/44 have no results in this snapshot. This update checked stored scalar/history consistency; it did not rerun evaluation or scan every checkpoint tensor. Do not pool these values with canonical padding-0 experiments.
+
 Results only; code and checkpoints are not included.
