@@ -40,9 +40,9 @@ The earlier seed-42 report-only values (Plain best/final 67.87/67.85%; TWM 69.70
 | Method | Seed | Completed epochs | Best Top-1 (%) |
 | --- | ---: | ---: | ---: |
 | Plain | 42 | 149 / 300 | 62.08 |
-| TWM (ReLU) | 42 | 109 / 300 | **73.38** |
+| TWM (persistent ReLU) | 42 | 109 / 300 | **73.38** |
 
-Latest retained records checked on 2026-09-08; different epoch counts prevent a matched comparison.
+Retained checkpoint audit dated 2026-10-07 records Plain 62.078% at epoch149 and TWM 73.384% at epoch109 (rounded above). Different epoch counts and weight decay prevent a matched comparison. Both the ResNet-50 and ViT-B/16 TWM rows use persistent raw-S ReLU; their Plain references do not.
 
 ## ImageNet-1K: ViT-B/16 (incomplete)
 
