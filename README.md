@@ -1,31 +1,17 @@
-# Transmitter Weight Modulation
+# Transmitter Weight Modulation (TWM)
 
-Most neural networks are trained using backpropagation to compute gradients and an optimizer to update their weights and biases directly. **Transmitter Weight Modulation (TWM)** explores a different approach: using a transmitter update rule to adapt weights and biases indirectly, while retaining backpropagation for learning.
+## Abstract
 
-Our pilot results show that this approach can support learning in both convolutional networks and vision transformers. We report preliminary image-classification results on CIFAR-100 and partial results on ImageNet-1K. These findings motivate further investigation, with matched comparisons needed to establish whether the approach offers an advantage over conventional training.
+Artificial neural networks (ANNs) typically use backpropagation to compute gradients for directly updating their weights and biases. However, improving learning performance, adaptability, and robustness under changing data distributions remains an important challenge. This motivates exploring whether biologically inspired learning rules can provide alternative mechanisms for training ANNs.
 
-## CIFAR-100
+We introduce a learning rule, Transmitter Weight Modulation (TWM), derived from a neurophysiological model of transmitter dynamics. This rule uses latent weights and biases, together with trainable modulation parameters, to generate the emitted weights and biases used during forward propagation. Our approach provides an alternative mechanism for training ANNs by optimizing the trainable parameters within the rule, thereby indirectly updating the emitted weights and biases. The rule also provides a biologically inspired interpretation based on transmitter recovery and activity-dependent depletion.
 
-Validation accuracy (%). Multi-seed values are mean ± sample standard deviation.
+Preliminary experiments comparing TWM with conventional direct weight and bias learning using the same underlying neural network architectures suggest improvements in learning performance when training from scratch, as well as adaptability and robustness under continual learning with changing data distributions. These findings indicate the potential of TWM as a general learning rule for ANN training.
 
-| Model | Method | Epochs | Seeds | Best | Final |
-| --- | --- | ---: | --- | ---: | ---: |
-| ResNet-50 | Plain reference | 200 | 42, 43, 44 | 79.64 ± 0.23 | 79.44 ± 0.27 |
-| ResNet-50 | TWM (ReLU) | 200 | 42, 43, 44 | **80.76 ± 0.34** | **80.63 ± 0.32** |
-| ViT-B/16 | Plain reference | 300 | 42 | 71.30 | 71.08 |
-| ViT-B/16 | TWM (ReLU) | 300 | 42, 43, 44 | **74.91 ± 0.21** | **74.81 ± 0.18** |
-| ConvNeXt-Small | Plain, historical | 300 | 42 | 67.87 | 67.85 |
-| ConvNeXt-Small | TWM, historical | 300 | 42 | **69.70** | **69.60** |
+## Preliminary results
 
-Plain references differ in configuration or seed coverage. ConvNeXt values are historical reports; original artifacts are unavailable. These are preliminary comparisons, not confirmed performance gains.
+See [the retained preliminary results](docs/preliminary-results.md) for image-classification tables, their observation dates, and comparison limitations.
 
-## ImageNet-1K: ResNet-50 (incomplete)
+The abstract reproduces the author-designated manuscript wording. The public tables provide partial evidence and do not independently establish every claim in the abstract.
 
-| Method | Seed | Completed epochs | Best Top-1 (%) |
-| --- | ---: | ---: | ---: |
-| Plain | 42 | 149 / 300 | 62.08 |
-| TWM (ReLU) | 42 | 109 / 300 | **73.38** |
-
-Latest retained records checked on 2026-09-08; different epoch counts prevent a matched comparison.
-
-Results only; code and checkpoints are not included.
+This repository currently shares the manuscript abstract and preliminary results. Code and checkpoints are not included.
